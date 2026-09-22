@@ -54,4 +54,4 @@ def build_page() -> str:
 
 
 st.set_page_config(page_title="Brindha's Birthday", page_icon="🎂", layout="wide")
-components.html(build_page(), height=1800, scrolling=True)
+components.html(build_page(), height=920, scrolling=True)

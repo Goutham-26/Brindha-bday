@@ -541,9 +541,12 @@ h2 em {
 
 .surprise-panel {
     text-align: center;
-    display: grid;
     place-items: center;
     min-height: calc(100vh - 175px);
+}
+
+.tab-panel.active.surprise-panel {
+    display: grid;
 }
 
 .surprise-inner {
