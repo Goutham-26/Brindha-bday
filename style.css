@@ -871,3 +871,148 @@ footer {
     background: #000;
     border: 1px solid var(--line);
 }
+
+.birthday-finale-panel {
+    display: none;
+    min-height: calc(100vh - 175px);
+    padding: 95px 0 105px;
+    position: relative;
+    overflow: hidden;
+    place-items: center;
+    text-align: center;
+    animation: rise .55s ease both;
+    isolation: isolate;
+}
+
+.birthday-finale-panel.revealed {
+    display: grid;
+}
+
+.birthday-finale-panel::before {
+    content: '';
+    position: absolute;
+    inset: 12% 8%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(223, 117, 90, .28), transparent 65%);
+}
+
+.birthday-finale-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.birthday-finale-copy h2 {
+    font-size: clamp(3.6rem, 9vw, 8rem);
+}
+
+.birthday-finale-copy>p:not(.eyebrow) {
+    max-width: 470px;
+    margin: 30px auto 24px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.finale-burst {
+    color: var(--coral);
+    font-size: 3rem;
+    margin: 22px 0 28px;
+    animation: star-pulse 1.2s ease-in-out infinite alternate;
+}
+
+.celebration-effects,
+#finale-confetti {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.cracker,
+.popper {
+    position: absolute;
+    color: var(--rose);
+    font-size: 3rem;
+    animation: cracker-pop 1.8s ease-in-out infinite alternate;
+}
+
+.cracker-left {
+    left: 9%;
+    top: 24%;
+}
+
+.cracker-right {
+    right: 9%;
+    top: 32%;
+    color: var(--coral);
+    animation-delay: .35s;
+}
+
+.popper {
+    color: var(--coral);
+    font-size: 1.6rem;
+    animation-name: popper-spark;
+}
+
+.popper-one {
+    left: 24%;
+    top: 18%;
+}
+
+.popper-two {
+    right: 25%;
+    top: 20%;
+    animation-delay: .6s;
+}
+
+.popper-three {
+    left: 17%;
+    bottom: 23%;
+    animation-delay: .9s;
+}
+
+.finale-confetti {
+    position: absolute;
+    top: -20px;
+    width: 8px;
+    height: 18px;
+    animation: finale-fall 3.6s linear infinite;
+}
+
+@keyframes cracker-pop {
+    from {
+        transform: rotate(-14deg) scale(.75);
+        opacity: .55;
+    }
+
+    to {
+        transform: rotate(14deg) scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes popper-spark {
+    from {
+        transform: scale(.5) rotate(0);
+        opacity: .2;
+    }
+
+    to {
+        transform: scale(1.5) rotate(90deg);
+        opacity: 1;
+    }
+}
+
+@keyframes finale-fall {
+    to {
+        transform: translate(var(--fall-x), 105vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .birthday-finale-panel *,
+    .birthday-finale-panel::before {
+        animation: none;
+    }
+}
