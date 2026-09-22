@@ -138,64 +138,6 @@ function dodgeNoButton() {
 }
 
 noButton.addEventListener('pointerenter', dodgeNoButton);
-
-document.getElementById('yes-button').addEventListener('click', () => {
-    const overlay = document.getElementById('congratulations-overlay');
-    const moreSurprise = document.getElementById('more-surprise');
-    overlay.classList.add('show');
-    overlay.setAttribute('aria-hidden', 'false');
-    setTimeout(() => {
-        overlay.classList.remove('show');
-        overlay.setAttribute('aria-hidden', 'true');
-        moreSurprise.classList.add('revealed');
-        moreSurprise.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 1800);
-});
-
-document.getElementById('more-yes-button').addEventListener('click', () => {
-    const videoPanel = document.getElementById('video-surprise');
-    videoPanel.classList.add('revealed');
-    videoPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-});
-
-const birthdayVideo = document.getElementById('birthday-video');
-const videoPanel = document.getElementById('video-surprise');
-const finalePanel = document.getElementById('birthday-finale');
-let finaleTimer;
-
-function createFinaleConfetti() {
-    const zone = document.getElementById('finale-confetti');
-    const colors = ['#df755a', '#edb9aa', '#d9a441', '#8eaa83', '#f8f2eb'];
-    zone.innerHTML = '';
-    for (let index = 0; index < 54; index += 1) {
-        const piece = document.createElement('i');
-        piece.className = 'finale-confetti';
-        piece.style.left = `${Math.random() * 100}%`;
-        piece.style.background = colors[index % colors.length];
-        piece.style.setProperty('--fall-x', `${(Math.random() - 0.5) * 180}px`);
-        piece.style.animationDelay = `${Math.random() * 1.4}s`;
-        zone.appendChild(piece);
-    }
-}
-
-function showBirthdayFinale() {
-    finaleTimer = null;
-    videoPanel.classList.remove('revealed');
-    finalePanel.classList.add('revealed');
-    finalePanel.setAttribute('aria-hidden', 'false');
-    createFinaleConfetti();
-    finalePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-birthdayVideo.addEventListener('ended', () => {
-    clearTimeout(finaleTimer);
-    finaleTimer = setTimeout(showBirthdayFinale, 3000);
-});
-
-document.getElementById('finale-home-button').addEventListener('click', () => {
-    clearTimeout(finaleTimer);
-    finalePanel.classList.remove('revealed');
-    finalePanel.setAttribute('aria-hidden', 'true');
-    birthdayVideo.currentTime = 0;
-    openTab('home');
+noButton.addEventListener('click', () => {
+    window.location.assign('https://www.google.com');
 });
