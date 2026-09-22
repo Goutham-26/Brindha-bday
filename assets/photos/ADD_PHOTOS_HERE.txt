@@ -1,0 +1,1 @@
+Put Brindha photos in this folder (.jpg, .jpeg, .png, .webp, or .gif). The welcome page will automatically turn them into a slideshow.
