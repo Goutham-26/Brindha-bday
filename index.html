@@ -24,6 +24,9 @@
             <button class="nav-tab" data-tab="game">The friendship game</button>
             <button class="nav-tab" data-tab="wishes">Little wishes</button>
             <button class="nav-tab" data-tab="surprise">Surprise</button>
+            <button class="nav-tab" data-tab="more-surprise">More surprise</button>
+            <button class="nav-tab" data-tab="video-surprise">Video</button>
+            <button class="nav-tab" data-tab="birthday-finale">Finale</button>
         </nav>
         <div class="date-stamp">22.09.26 <span>♥</span></div>
     </header>
@@ -134,6 +137,46 @@
                 <span class="celebration-star">✦</span>
                 <strong>Congratulations, Brindha!</strong>
                 <span>Best friends forever.</span>
+            </div>
+        </section>
+
+        <section id="more-surprise" class="tab-panel more-surprise-panel" data-panel="more-surprise">
+            <div class="surprise-inner reveal">
+                <div class="cake">✦</div>
+                <p class="eyebrow">A little more for you</p>
+                <h2>The congratulations<br /><em>are official.</em></h2>
+                <p class="forever-question">Best friends forever, confirmed.</p>
+                <button class="primary-button" id="more-yes-button">Show me the video <span>→</span></button>
+            </div>
+        </section>
+
+        <section id="video-surprise" class="tab-panel video-surprise-panel" data-panel="video-surprise">
+            <div class="section-heading centered reveal">
+                <p class="eyebrow">A memory made just for you</p>
+                <h2>Press play on<br /><em>the surprise.</em></h2>
+            </div>
+            <video id="birthday-video" class="birthday-video" controls playsinline preload="metadata">
+                <source src="{{VIDEO_SOURCE}}" type="video/mp4" />
+                Your browser does not support the birthday video.
+            </video>
+            <button class="primary-button section-next" id="skip-video-button">Go to the finale <span>→</span></button>
+        </section>
+
+        <section id="birthday-finale" class="tab-panel birthday-finale-panel" data-panel="birthday-finale">
+            <div class="celebration-effects" aria-hidden="true">
+                <span class="cracker cracker-left">✦</span>
+                <span class="cracker cracker-right">✦</span>
+                <span class="popper popper-one">✦</span>
+                <span class="popper popper-two">✦</span>
+                <span class="popper popper-three">✦</span>
+                <div id="finale-confetti"></div>
+            </div>
+            <div class="birthday-finale-copy reveal">
+                <p class="eyebrow">The grand finale</p>
+                <h2>Happy birthday,<br /><em>Brindha!</em></h2>
+                <p>May this year bring you loud laughter, soft moments, and every lovely thing you deserve.</p>
+                <div class="finale-burst" aria-hidden="true">✦</div>
+                <button class="primary-button" id="finale-home-button">Back to home <span>↗</span></button>
             </div>
         </section>
 

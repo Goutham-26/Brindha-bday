@@ -114,6 +114,20 @@ document.getElementById('yes-button').addEventListener('click', () => {
     }
 });
 
+const congratulationsOverlay = document.getElementById('congratulations-overlay');
+let congratulationsTimer;
+
+document.getElementById('yes-button').addEventListener('click', () => {
+    clearTimeout(congratulationsTimer);
+    congratulationsOverlay.classList.add('show');
+    congratulationsOverlay.setAttribute('aria-hidden', 'false');
+    congratulationsTimer = setTimeout(() => {
+        congratulationsOverlay.classList.remove('show');
+        congratulationsOverlay.setAttribute('aria-hidden', 'true');
+        openTab('more-surprise');
+    }, 1800);
+});
+
 const noButton = document.getElementById('no-button');
 const yesButton = document.getElementById('yes-button');
 const actionArea = document.querySelector('.question-actions');
@@ -140,4 +154,43 @@ function dodgeNoButton() {
 noButton.addEventListener('pointerenter', dodgeNoButton);
 noButton.addEventListener('click', () => {
     window.location.assign('https://www.google.com');
+});
+
+const birthdayVideo = document.getElementById('birthday-video');
+const finalePanel = document.getElementById('birthday-finale');
+
+document.getElementById('more-yes-button').addEventListener('click', () => {
+    openTab('video-surprise');
+});
+
+function createFinaleConfetti() {
+    const zone = document.getElementById('finale-confetti');
+    const colors = ['#df755a', '#edb9aa', '#d9a441', '#8eaa83', '#f8f2eb'];
+    zone.innerHTML = '';
+    for (let index = 0; index < 54; index += 1) {
+        const piece = document.createElement('i');
+        piece.className = 'finale-confetti';
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.background = colors[index % colors.length];
+        piece.style.setProperty('--fall-x', `${(Math.random() - 0.5) * 180}px`);
+        piece.style.animationDelay = `${Math.random() * 1.4}s`;
+        zone.appendChild(piece);
+    }
+}
+
+function showBirthdayFinale() {
+    createFinaleConfetti();
+    openTab('birthday-finale');
+}
+
+birthdayVideo.addEventListener('ended', () => {
+    setTimeout(showBirthdayFinale, 3000);
+});
+
+document.getElementById('skip-video-button').addEventListener('click', showBirthdayFinale);
+
+document.getElementById('finale-home-button').addEventListener('click', () => {
+    birthdayVideo.pause();
+    birthdayVideo.currentTime = 0;
+    openTab('home');
 });
